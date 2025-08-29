@@ -31,11 +31,11 @@
   - [x] Configure ESLint and Prettier
 
 - [ ] **Core Types & API**
-  - [ ] Define TypeScript interfaces for Post, User, PostDetail
-  - [ ] Create API client with fetch wrapper
-  - [ ] Set up JSONPlaceholder integration
-  - [ ] Implement error handling patterns
-  - [ ] Create mock data fallbacks
+  - [x] Define TypeScript interfaces for Post, User, PostDetail
+  - [x] Create API client with fetch wrapper
+  - [x] Set up JSONPlaceholder integration
+  - [x] Implement error handling patterns
+  - [x] Create mock data fallbacks
 
 ### Phase 2: Basic Features (Week 2)
 
