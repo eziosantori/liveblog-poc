@@ -2,7 +2,8 @@
 
 import { LiveBlog } from '@/components/features/liveblog/LiveBlog'
 import { usePostsInfiniteQuery } from '@/hooks/queries/usePosts'
-import { useCallback, useEffect, useRef } from 'react'
+import { useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 export function LiveBlogContainer() {
   const {
@@ -15,36 +16,18 @@ export function LiveBlogContainer() {
     refetch,
   } = usePostsInfiniteQuery()
 
-  const observerRef = useRef<IntersectionObserver | null>(null)
-  const loadMoreRef = useCallback(
-    (node: HTMLDivElement | null) => {
-      if (isLoadingMorePosts) return
+  // Create a ref that detects when element is in view
+  const { ref, inView } = useInView({
+    threshold: 0.1, // Trigger when at least 10% of the element is visible
+    rootMargin: '0px 0px 200px 0px', // Load more 200px before reaching the bottom
+  })
 
-      if (observerRef.current) {
-        observerRef.current.disconnect()
-      }
-
-      observerRef.current = new IntersectionObserver((entries) => {
-        if (entries[0]?.isIntersecting && hasMorePosts) {
-          loadMorePosts()
-        }
-      })
-
-      if (node) {
-        observerRef.current.observe(node)
-      }
-    },
-    [isLoadingMorePosts, hasMorePosts, loadMorePosts],
-  )
-
-  // Cleanup observer on unmount
+  // Load more posts when the load more element comes into view
   useEffect(() => {
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect()
-      }
+    if (inView && hasMorePosts && !isLoadingMorePosts) {
+      loadMorePosts()
     }
-  }, [])
+  }, [inView, hasMorePosts, isLoadingMorePosts, loadMorePosts])
 
   const handlePostClick = (postId: number) => {
     console.log(`Post clicked: ${postId}`)
@@ -62,7 +45,7 @@ export function LiveBlogContainer() {
       />
 
       {hasMorePosts && (
-        <div ref={loadMoreRef} className="py-4 text-center">
+        <div ref={ref} className="py-4 text-center">
           {isLoadingMorePosts ? 'Loading more posts...' : 'Load more posts'}
         </div>
       )}
