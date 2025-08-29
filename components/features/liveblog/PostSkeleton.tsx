@@ -6,7 +6,7 @@ interface PostSkeletonProps {
 
 export const PostSkeleton = memo<PostSkeletonProps>(({ count = 3 }) => {
   return (
-    <div className="space-y-4 w-full">
+    <div className={count > 1 ? 'space-y-4 w-full' : 'w-full'}>
       {Array.from({ length: count }).map((_, index) => (
         <div key={index} className="border p-4 rounded-lg animate-pulse">
           <div className="h-5 bg-gray-200 rounded w-3/4 mb-4"></div>
