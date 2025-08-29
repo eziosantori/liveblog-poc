@@ -6,6 +6,8 @@ This is a live blog POC focused on performance optimization using modern React/N
 
 ## Code Standards & Best Practices
 
+Every time you look at the TASK.MD file, always keep in mind the guidelines defined inside the PLANNING.MD file
+
 ### React & Next.js Patterns
 
 - **Use Server Components by default**, Client Components only when necessary
