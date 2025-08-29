@@ -1,3 +1,6 @@
+'use client'
+
+import { ErrorDisplay } from '@/components/ui/ErrorDisplay'
 import type { Post as PostType } from '@/types/models'
 import { memo } from 'react'
 import { Post } from './Post'
@@ -6,14 +9,15 @@ import { PostSkeleton } from './PostSkeleton'
 interface LiveBlogProps {
   posts?: PostType[]
   isLoading?: boolean
-  error?: string
+  error?: string | undefined
   onPostClick?: (postId: number) => void
+  onRetry?: (() => void) | undefined
 }
 
 export const LiveBlog = memo<LiveBlogProps>(
-  ({ posts = [], isLoading, error, onPostClick }) => {
+  ({ posts = [], isLoading, error, onPostClick, onRetry }) => {
     if (error) {
-      return <div className="text-red-500 p-4">Error: {error}</div>
+      return <ErrorDisplay error={error} resetAction={onRetry} />
     }
 
     return (

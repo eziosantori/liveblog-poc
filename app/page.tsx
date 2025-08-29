@@ -1,12 +1,9 @@
-import { LiveBlog } from '@/components/features/liveblog/LiveBlog'
-import { getPosts } from '@/lib/api/jsonplaceholder'
+import { LiveBlogContainer } from './LiveBlogContainer'
 
-export default async function Home() {
-  const posts = await getPosts()
-
+export default function Home() {
   return (
     <div className="container mx-auto py-8">
-      <LiveBlog posts={posts} />
+      <LiveBlogContainer />
     </div>
   )
 }
