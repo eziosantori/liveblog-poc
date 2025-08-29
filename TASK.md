@@ -26,9 +26,9 @@
 
   - [x] Initialize Next.js project with latest version
   - [x] Install and configure TanStack Query v5
-  - [ ] Set up TypeScript with strict configuration
-  - [ ] Create basic folder structure
-  - [ ] Configure ESLint and Prettier
+  - [x] Set up TypeScript with strict configuration
+  - [x] Create basic folder structure
+  - [x] Configure ESLint and Prettier
 
 - [ ] **Core Types & API**
   - [ ] Define TypeScript interfaces for Post, User, PostDetail
