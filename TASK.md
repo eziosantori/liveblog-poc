@@ -22,7 +22,7 @@
 
 ### Phase 1: Foundation (Week 1)
 
-- [ ] **Setup & Configuration**
+- [x] **Setup & Configuration**
 
   - [x] Initialize Next.js project with latest version
   - [x] Install and configure TanStack Query v5
@@ -30,7 +30,7 @@
   - [x] Create basic folder structure
   - [x] Configure ESLint and Prettier
 
-- [ ] **Core Types & API**
+- [x] **Core Types & API**
   - [x] Define TypeScript interfaces for Post, User, PostDetail
   - [x] Create API client with fetch wrapper
   - [x] Set up JSONPlaceholder integration
@@ -41,9 +41,9 @@
 
 - [ ] **Initial Components**
 
-  - [ ] Create LiveBlog container component
-  - [ ] Implement basic Post component
-  - [ ] Add PostSkeleton loading component
+  - [x] Create LiveBlog container component
+  - [x] Implement basic Post component
+  - [x] Add PostSkeleton loading component
   - [ ] Set up QueryProvider wrapper
 
 - [ ] **Data Fetching**
